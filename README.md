@@ -1,39 +1,30 @@
-## Decoding Nuxt 4's TypeScript config files
+## Nuxt 4 Build Folder Deep Dive
 
 ## Repo Overview
 
-This repo is the companion to my article on understanding Nuxt 4's TypeScript config files:
+This repo is the companion to my article on understanding Nuxt 4's build folder and TypeScript configuration:
 
-- https://davestewart.co.uk/blog/decoding-nuxt-tsconfig
+- https://davestewart.co.uk/blog/nuxt-build-deep-dive
 
-The repo is a simple Nuxt 4 project, but with the `.nuxt` committed to the repo, and with tweaks and comments in the files to make them easier to understand.
-
-## Article Overview
-
-The article itself covers how things fit together, specifically:
-
-- core `tsconfig.json` file
-- the individual `.nuxt/tsconfig.*.json` files
-- their `compilerOptions` properties
-- their `includes` arrays
-- their `excludes` arrays
-- related `<reference />` files
+The repo is a Nuxt 4 / Nuxt Content starter project, with the `.nuxt` committed to the repo, and the files annotated and with folder README's to explain how everything fits together.
 
 ## Get Started
 
-Install dependencies:
+You can view the repo directly on GitHub, or install locally and click around:
 
+```bash
+npm install
 ```
-pnpm i
-```
 
-Open `tsconfg.json` in your editor, and `Cmd+Click` any of the `references` file names to jump to their definitions.
+> [!IMPORTANT]
+> Make sure to install with NPM _only_ (rather than PNPM or Yarn) so all paths correctly reference the correct `node_modules` folders
 
-You can compare
+Also, at this point, **don't run the dev server** as it will overwrite the file annotations in the build folder!
 
-> [!NOTE]
-> **Don't build the project!**
->
-> Because Nuxt will rewrite these files, and the aim of the exercise to understand the structure and relationship of the entries to each other.
+Next:
+
+- open `tsconfg.json` in your editor, and `Cmd+Click` any of the `references` file names to jump to their definitions
+- take a look at the `.nuxt` folder to see the individual files
+- check out the `README.md` files in each folder
 
 See the article for more details.

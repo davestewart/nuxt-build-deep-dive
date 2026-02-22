@@ -1,173 +1,139 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "ESNext",
-    "allowJs": true,
+    // Type Checking
+    "noImplicitOverride": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
+
+    // Modules
+    "allowArbitraryExtensions": true,
+    "module": "preserve",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
-    "moduleDetection": "force",
+    "types": [],
+
+    // Emit
+    "noEmit": true,
+
+    // JavaScript Support
+    "allowJs": true,
+
+    // Interop Constraints
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "allowArbitraryExtensions": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitOverride": true,
-    "module": "preserve",
-    "noEmit": true,
-    "types": [],
-    "moduleResolution": "Bundler",
+
+    // Language and Environment
+
+
+
+
+    "moduleDetection": "force",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "noImplicitThis": true,
-    "allowSyntheticDefaultImports": true,
+
+    // Completeness
+    "skipLibCheck": true,
+
+    // Environment-specific
+
+
+
+
+
+
     "paths": {
-      "@unhead/vue": [
-        "../node_modules/@unhead/vue"
-      ],
-      "@nuxt/devtools": [
-        "../node_modules/@nuxt/devtools"
-      ],
-      "vue": [
-        "../node_modules/vue"
-      ],
-      "@vue/runtime-core": [
-        "../node_modules/@vue/runtime-core"
-      ],
-      "@vue/compiler-sfc": [
-        "../node_modules/@vue/compiler-sfc"
-      ],
-      "vue-router": [
-        "../node_modules/vue-router"
-      ],
-      "vue-router/auto-routes": [
-        "../node_modules/vue-router/vue-router-auto-routes"
-      ],
-      "unplugin-vue-router/client": [
-        "../node_modules/unplugin-vue-router/client"
-      ],
-      "@nuxt/schema": [
-        "../node_modules/@nuxt/schema"
-      ],
-      "nuxt": [
-        "../node_modules/nuxt"
-      ],
-      "vite/client": [
-        "../node_modules/vite/client"
-      ],
-      "@nuxtjs/mdc": [
-        "../node_modules/@nuxtjs/mdc"
-      ],
-      "nitropack/types": [
-        "../node_modules/nitropack/types"
-      ],
-      "nitropack/runtime": [
-        "../node_modules/nitropack/runtime"
-      ],
-      "nitropack": [
-        "../node_modules/nitropack"
-      ],
-      "defu": [
-        "../node_modules/defu"
-      ],
-      "h3": [
-        "../node_modules/h3"
-      ],
-      "consola": [
-        "../node_modules/consola"
-      ],
-      "ofetch": [
-        "../node_modules/ofetch"
-      ],
-      "crossws": [
-        "../node_modules/crossws"
-      ],
-      "#content/components": [
-        "./content/components"
-      ],
-      "#content/manifest": [
-        "./content/manifest"
-      ],
-      "~": [
-        "../app"
-      ],
-      "~/*": [
-        "../app/*"
-      ],
-      "@": [
-        "../app"
-      ],
-      "@/*": [
-        "../app/*"
-      ],
-      "~~": [
-        ".."
-      ],
-      "~~/*": [
-        "../*"
-      ],
-      "@@": [
-        ".."
-      ],
-      "@@/*": [
-        "../*"
-      ],
-      "#shared": [
-        "../shared"
-      ],
-      "#shared/*": [
-        "../shared/*"
-      ],
-      "#server": [
-        "../server"
-      ],
-      "#server/*": [
-        "../server/*"
-      ],
-      "#app": [
-        "../node_modules/nuxt/dist/app"
-      ],
-      "#app/*": [
-        "../node_modules/nuxt/dist/app/*"
-      ],
-      "vue-demi": [
-        "../node_modules/nuxt/dist/app/compat/vue-demi"
-      ],
-      "#vue-router": [
-        "../node_modules/vue-router"
-      ],
-      "#unhead/composables": [
-        "../node_modules/nuxt/dist/head/runtime/composables"
-      ],
-      "#imports": [
-        "./imports"
-      ],
-      "#mdc-configs": [
-        "./mdc-configs"
-      ],
-      "#mdc-highlighter": [
-        "./mdc-highlighter"
-      ],
-      "#mdc-imports": [
-        "./mdc-imports"
-      ],
-      "#app-manifest": [
-        "./manifest/meta/f1946640-b2dd-43aa-b44c-a912601debd9"
-      ],
-      "#build": [
-        "."
-      ],
-      "#build/*": [
-        "./*"
-      ]
+      // Project root
+      "~~": [".."],
+      "~~/*": ["../*"],
+      "@@": [".."],
+      "@@/*": ["../*"],
+
+      // App directory
+      "~": ["../app"],
+      "~/*": ["../app/*"],
+      "@": ["../app"],
+      "@/*": ["../app/*"],
+
+      // Project directories
+      "#shared": ["../shared"],
+      "#shared/*": ["../shared/*"],
+      "#server": ["../server"],
+      "#server/*": ["../server/*"],
+
+      // Nuxt runtime
+      "#app": ["../node_modules/nuxt/dist/app"],
+      "#app/*": ["../node_modules/nuxt/dist/app/*"],
+
+      // Generated type aggregators
+      "#imports": ["./imports"],
+
+      // Build directory
+      "#build": ["."],
+      "#build/*": ["./*"],
+
+      // Generated virtual modules
+      "#app-manifest": ["./manifest/meta/f1946640-b2dd-43aa-b44c-a912601debd9"],
+      "#content/components": ["./content/components"],
+      "#content/manifest": ["./content/manifest"],
+      "#mdc-configs": ["./mdc-configs"],
+      "#mdc-highlighter": ["./mdc-highlighter"],
+      "#mdc-imports": ["./mdc-imports"],
+
+      // Vue ecosystem
+      "vue": ["../node_modules/vue"],
+      "vue-demi": ["../node_modules/nuxt/dist/app/compat/vue-demi"],
+      "@vue/runtime-core": ["../node_modules/@vue/runtime-core"],
+      "@vue/compiler-sfc": ["../node_modules/@vue/compiler-sfc"],
+
+      // Vue Router
+      "vue-router": ["../node_modules/vue-router"],
+      "vue-router/auto-routes": ["../node_modules/vue-router/vue-router-auto-routes"],
+      "unplugin-vue-router/client": ["../node_modules/unplugin-vue-router/client"],
+
+      // Head management
+      "@unhead/vue": ["../node_modules/@unhead/vue"],
+      "#unhead/composables": ["../node_modules/nuxt/dist/head/runtime/composables"],
+
+      // Nuxt framework
+      "nuxt": ["../node_modules/nuxt"],
+      "@nuxt/schema": ["../node_modules/@nuxt/schema"],
+      "@nuxt/devtools": ["../node_modules/@nuxt/devtools"],
+
+      // Nuxt modules
+      "@nuxtjs/mdc": ["../node_modules/@nuxtjs/mdc"],
+
+      // Nitro (server)
+      "nitropack": ["../node_modules/nitropack"],
+      "nitropack/types": ["../node_modules/nitropack/types"],
+      "nitropack/runtime": ["../node_modules/nitropack/runtime"],
+      "h3": ["../node_modules/h3"],
+      "crossws": ["../node_modules/crossws"],
+
+      // Build tools
+      "vite/client": ["../node_modules/vite/client"],
+
+      // Universal utilities
+      "defu": ["../node_modules/defu"],
+      "ofetch": ["../node_modules/ofetch"],
+      "consola": ["../node_modules/consola"]
     }
   },
   "include": [
+    // Shared type references
     "./nuxt.shared.d.ts",
+
+    // Root type definitions
+    "../*.d.ts",
+    "../layers/*/*.d.ts",
+
+    // Shared code
     "../shared/**/*",
     "../modules/*/shared/**/*",
-    "../layers/*/shared/**/*",
-    "../*.d.ts",
-    "../layers/*/*.d.ts"
-  ],
+    "../layers/*/shared/**/*"
+ ],
   "exclude": []
 }
