@@ -1,0 +1,1 @@
+// Vue shim file (empty placeholder for potential future Vue-specific type augmentations).

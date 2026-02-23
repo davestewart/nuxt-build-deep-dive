@@ -1,3 +1,5 @@
+// Nitro-Nuxt integration type declarations.
+// Extends Nitro types with Nuxt-specific configuration, hooks, and features.
 
 /// <reference path="nitro-layouts.d.ts" />
 /// <reference path="app.config.d.ts" />
@@ -10,6 +12,7 @@ import type { H3Event } from 'h3'
 import type { LogObject } from 'consola'
 import type { NuxtIslandContext, NuxtIslandResponse, NuxtRenderHTMLContext } from 'nuxt/app'
 
+// Extend nitropack module with Nuxt-specific types
 declare module 'nitropack' {
   interface NitroRuntimeConfigApp {
     buildAssetsDir: string
@@ -30,12 +33,15 @@ declare module 'nitropack' {
     appMiddleware?: Record<string, boolean>
     appLayout?: string | false
   }
+  // Nuxt runtime hooks
   interface NitroRuntimeHooks {
     'dev:ssr-logs': (ctx: { logs: LogObject[], path: string }) => void | Promise<void>
     'render:html': (htmlContext: NuxtRenderHTMLContext, context: { event: H3Event }) => void | Promise<void>
     'render:island': (islandResponse: NuxtIslandResponse, context: { event: H3Event, islandContext: NuxtIslandContext }) => void | Promise<void>
   }
 }
+
+// Extend nitropack/types module with Nuxt-specific types
 declare module 'nitropack/types' {
   interface NitroRuntimeConfigApp {
     buildAssetsDir: string
@@ -56,6 +62,8 @@ declare module 'nitropack/types' {
     appMiddleware?: Record<string, boolean>
     appLayout?: string | false
   }
+
+  // Nuxt runtime hooks
   interface NitroRuntimeHooks {
     'dev:ssr-logs': (ctx: { logs: LogObject[], path: string }) => void | Promise<void>
     'render:html': (htmlContext: NuxtRenderHTMLContext, context: { event: H3Event }) => void | Promise<void>

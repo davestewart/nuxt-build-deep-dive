@@ -1,5 +1,10 @@
+// Runtime config type declarations.
+// Defines the runtime configuration structure available via useRuntimeConfig().
+
 import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRuntimeConfig } from 'nuxt/schema'
-  interface SharedRuntimeConfig {
+
+// Shared runtime config (private - server-side only)
+interface SharedRuntimeConfig {
    app: {
       buildId: string,
 
@@ -33,8 +38,10 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
 
       integrityCheck: boolean,
    },
-  }
-  interface SharedPublicRuntimeConfig {
+}
+
+// Shared public runtime config (accessible on both client and server)
+interface SharedPublicRuntimeConfig {
    mdc: {
       components: {
          prose: boolean,
@@ -80,17 +87,23 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
    content: {
       wsUrl: string,
    },
-  }
+}
+
+// Extend @nuxt/schema with user-defined runtime config
 declare module '@nuxt/schema' {
   interface RuntimeConfig extends UserRuntimeConfig {}
   interface PublicRuntimeConfig extends UserPublicRuntimeConfig {}
 }
+
+// Extend nuxt/schema with shared runtime config
 declare module 'nuxt/schema' {
   interface RuntimeConfig extends SharedRuntimeConfig {}
   interface PublicRuntimeConfig extends SharedPublicRuntimeConfig {}
 }
+
+// Make runtime config available in Vue components via $config
 declare module 'vue' {
-        interface ComponentCustomProperties {
-          $config: UserRuntimeConfig
-        }
-      }
+  interface ComponentCustomProperties {
+    $config: UserRuntimeConfig
+  }
+}

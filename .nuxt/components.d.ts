@@ -1,7 +1,10 @@
-
+// Vue types
 import type { DefineComponent, SlotsType } from 'vue'
+
+// Island component type (NuxtIsland with server component support)
 type IslandComponent<T> = DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>> & T
 
+// Lazy hydration strategies
 type HydrationStrategies = {
   hydrateOnVisible?: IntersectionObserverInit | true
   hydrateOnIdle?: number | true
@@ -11,6 +14,8 @@ type HydrationStrategies = {
   hydrateWhen?: boolean
   hydrateNever?: true
 }
+
+// Lazy component type (components with delayed hydration)
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 // App components

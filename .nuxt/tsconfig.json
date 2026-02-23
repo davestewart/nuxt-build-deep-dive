@@ -125,7 +125,7 @@
     }
   },
   "include": [
-    // Node type references
+    // Main type references
     "./nuxt.d.ts",
     "./nuxt.node.d.ts",
 

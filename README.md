@@ -6,7 +6,11 @@ This repo is the companion to my article on understanding Nuxt 4's build folder 
 
 - https://davestewart.co.uk/blog/nuxt-build-deep-dive
 
-The repo is a Nuxt 4 / Nuxt Content starter project, with the `.nuxt` committed to the repo, and the files annotated and with folder README's to explain how everything fits together.
+The repo is:
+
+- a Nuxt 4 / Nuxt Content starter project
+- with the `.nuxt` committed to the repo
+- with folder README's and file annotations to explain how everything fits together
 
 ## Get Started
 
@@ -23,8 +27,9 @@ Also, at this point, **don't run the dev server** as it will overwrite the file 
 
 Next:
 
-- open `tsconfg.json` in your editor, and `Cmd+Click` any of the `references` file names to jump to their definitions
-- take a look at the `.nuxt` folder to see the individual files
-- check out the `README.md` files in each folder
+- open `tsconfig.json` in your editor and `Cmd+Click` the `references` to jump to the definitions
+- open the `.nuxt` folder to see the individual files
+- view the `README.md` in each parent folder
+- view the annotations in the individual files
 
 See the article for more details.

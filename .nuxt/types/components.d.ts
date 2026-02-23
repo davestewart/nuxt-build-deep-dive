@@ -1,7 +1,12 @@
+// Global component type declarations.
+// Registers all auto-imported components for use in Vue templates without explicit imports.
 
 import type { DefineComponent, SlotsType } from 'vue'
+
+// Island component type (NuxtIsland with server component support)
 type IslandComponent<T> = DefineComponent<{}, {refresh: () => Promise<void>}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, SlotsType<{ fallback: { error: unknown } }>> & T
 
+// Lazy hydration strategies
 type HydrationStrategies = {
   hydrateOnVisible?: IntersectionObserverInit | true
   hydrateOnIdle?: number | true
@@ -11,11 +16,16 @@ type HydrationStrategies = {
   hydrateWhen?: boolean
   hydrateNever?: true
 }
+
+// Lazy component type (components with delayed hydration)
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
+  // App components
   Alert: typeof import("../../app/components/Alert.vue")['default']
   Counter: typeof import("../../app/components/Counter.vue")['default']
+
+  // MDC Prose components (markdown rendering)
   ProseA: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']
   ProseBlockquote: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseBlockquote.vue")['default']
   ProseCode: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseCode.vue")['default']
@@ -41,6 +51,8 @@ interface _GlobalComponents {
   ProseThead: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseThead.vue")['default']
   ProseTr: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseTr.vue")['default']
   ProseUl: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseUl.vue")['default']
+
+  // Nuxt core components
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -51,10 +63,16 @@ interface _GlobalComponents {
   NuxtLoadingIndicator: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
   NuxtTime: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
   NuxtRouteAnnouncer: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
+  NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+
+  // Nuxt image stubs
   NuxtImg: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
   NuxtPicture: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
-  ContentRenderer: typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentRenderer.vue")['default']
+
+  // Nuxt pages
   NuxtPage: typeof import("../../node_modules/nuxt/dist/pages/runtime/page")['default']
+
+  // Nuxt head components
   NoScript: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['NoScript']
   Link: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Link']
   Base: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Base']
@@ -64,11 +82,17 @@ interface _GlobalComponents {
   Head: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Head']
   Html: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Html']
   Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
+
+  // Nuxt Content module
+  ContentRenderer: typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentRenderer.vue")['default']
+
+  // MDC components
   MDC: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/MDC.vue")['default']
   MDCCached: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/MDCCached.vue")['default']
   MDCRenderer: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/MDCRenderer.vue")['default']
   MDCSlot: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/MDCSlot.vue")['default']
-  NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+
+  // Lazy variants (all components with delayed hydration)
   LazyAlert: LazyComponent<typeof import("../../app/components/Alert.vue")['default']>
   LazyCounter: LazyComponent<typeof import("../../app/components/Counter.vue")['default']>
   LazyProseA: LazyComponent<typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/prose/ProseA.vue")['default']>
@@ -126,6 +150,7 @@ interface _GlobalComponents {
   LazyNuxtIsland: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']>
 }
 
+// Register components globally in Vue
 declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
